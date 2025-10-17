@@ -1,22 +1,19 @@
-/* --- Font Setup --- */
-/* This rule assumes you have a font file named 'pokemon-solid.ttf' 
-   in a folder like 'src/assets/fonts/'. Adjust the path if needed. */
+
 @font-face {
   font-family: 'PokemonFont';
   src: url('./assets/fonts/pokemon-solid.ttf') format('truetype');
 }
 
-/* --- General Body Styles --- */
+
 body {
   margin: 0;
-  /* Prevents a horizontal scrollbar from appearing due to animations */
+ 
   overflow-x: hidden; 
-  background-color: #000; /* Black background for the area below the main scene */
+  background-color: #000;
   font-family: sans-serif;
 }
 
-/* --- Main Scene Container --- */
-/* This is the main blue area that holds the entire animated scene. */
+
 .blueBg {
   position: relative;
   width: 100vw;
@@ -48,84 +45,84 @@ body {
 }
 
 .background-layer.ground {
-  top: auto; /* Overrides top: 0 */
-  bottom: 0; /* Sticks the ground to the bottom of the .blueBg container */
-  z-index: 3; /* Places ground in front of clouds */
-  height: 15%; /* Adjust the height of the grass area */
+  top: auto; 
+  bottom: 0; 
+  z-index: 3; 
+  height: 15%; 
 }
-
-/* --- Central Content (Logo, Banner, Characters) --- */
-/* --- Central Content (Logo, Banner, Characters) --- */
 .center-content {
   position: relative;
-  z-index: 5; /* Puts characters and logo on top of all background layers */
+  z-index: 5; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10vh; /* Pushes the box down to make room for the logo */
+  margin-top: 10vh; 
   
-  /* Updated styles to create the new frame/border */
+  
   width: 750px;
   max-width: 90%;
   padding: 1.5rem;
-  background:transparent; /* Added cloud layer, ensure path is correct */
-  background-size: cover; /* Makes the cloud image fill the container */
-  background-blend-mode: screen; /* Blends the clouds with the blue background */
-  border: 4px solid #0b0f2e; /* Darker blue border */
-  box-shadow: inset 0 0 0 4px #e0e0e0; /* Inner light-gray border */
-  border-radius: 10px;
+  background:transparent; 
+  background-size: cover; 
+  background-blend-mode: screen; 
+  border: 4px solid #0b0f2e;
+  box-shadow: inset 0 0 0 4px #e0e0e0; 
+  border-radius: 20px;
+  border:border-box;
+  
+  
+   
 }
-/* Using a pseudo-element to "write" the main title */
+
 .center-content::before {
   content: 'NITS HACKS 8.0';
   font-family: 'PokemonFont', Arial, sans-serif;
-  color: #ff3b3b; /* Brighter red to match new design */
+  color: #ff3b3b; 
   font-size: 3.5rem;
   text-align: center;
   letter-spacing: 3px;
   margin-bottom: 1rem;
   line-height: 1.2;
-  text-shadow: 4px 4px 0px #8b2835; /* More pronounced shadow */
+  text-shadow: 4px 4px 0px #8b2835; 
 }
 
-/* Using a pseudo-element to "write" the coming soon text */
+
 .center-content::after {
   content: 'COMING SOON';
   font-family: 'PokemonFont', Arial, sans-serif;
-  color: #b0b0b0; /* Gray color from new design */
+  color: #b0b0b0; 
   font-size: 2.2rem;
   letter-spacing: 3px;
-  text-shadow: 3px 3px 0px #404040; /* Darker gray shadow for depth */
+  text-shadow: 3px 3px 0px #404040; 
 }
 
-/* Hiding the top logo image as it's not in the new design */
-/* Styling and positioning the logo in the sky */
+
 .logo {
-  display: block; /* Makes the logo visible */
+  display: block; 
   position: absolute;
-  top: 3vh; /* Positions it 3% from the top of the viewport */
+  top: 3vh;
   left: 50%;
-  transform: translateX(-50%); /* Horizontally centers the logo */
-  height: 45px; /* Adjust size as needed */
-  z-index: 10; /* Ensures it's on top of other elements */
+  transform: translateX(-50%); 
+  height: 45px; 
+  z-index: 10; 
 }
 
-  /* Container to position the characters */
+  
 .container {
     position: absolute;
-    bottom: -25vh; /* Adjusted position to be relative to the new frame */
+    bottom: -25vh; 
     display: flex;
-    align-items: flex-end; /* Aligns characters to their bottom edge */
-    gap: 30px; /* Space between Pikachu and the bike */
+    align-items: flex-end; 
+    gap: 30px;
 }
 
-/* Container to position the characters */
+
 .character-container {
     position: absolute;
-    bottom: -25vh; /* Adjusted position to be relative to the new frame */
+    bottom: -25vh;
     display: flex;
-    align-items: flex-end; /* Aligns characters to their bottom edge */
-    gap: 30px; /* Space between Pikachu and the bike */
+    align-items: flex-end;
+    gap: 30px; 
 }
 
 .character-pikachu {
@@ -136,31 +133,66 @@ body {
   height: 160px;
 }
 
-/* --- "COMING SOON" Text --- */
-/* Hiding the original container to replace it with a CSS pseudo-element */
 .comingContainer, .coming-soon-text {
   display: none;
 }
 
-/* --- Decorative Static Clouds (Not animated) --- */
-.clouds1 {
-  display: none; /* In the reference code but not visible in the design; hiding for now */
-}
 
-/* --- Static Grass (Not part of the animation) --- */
-/* This element seems unused in the final design. Hiding it. */
-.staticGrass {
+.clouds1 {
   display: none;
 }
 
-/* --- Footer and Sponsors Section --- */
+
+.staticGrass {
+  display: none;
+}
+#poke{
+  width: 150px;
+  position:absolute;;
+  left: 50px;
+  bottom:1px;
+}
+#poke:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+.ratAnimated{
+  width:100px;
+  position:absolute;
+  left:-70px;
+  bottom:130px;
+}
+.ratAnimated:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+.birdAnimated{
+  width:100px;
+  position:absolute;
+  right:120px;
+  bottom:100px;
+  
+}
+.birdAnimated:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+.pokeballs{
+  width:830px;
+  position:absolute;
+  right:-12px;
+  bottom:-20px;
+  height:200px;
+}
+
+
 .footer {
   background-color: #eeeeee;
   padding: 20px 0;
   width: 100%;
   position: relative;
   z-index: 10;
-  height: 15vh; /* The remaining 15% of the screen height */
+  height: 15vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,7 +234,7 @@ body {
 
 .carousel-track img {
   width: auto;
-  max-height: 80px; /* fit logos inside the sponsor-bg */
+  max-height: 80px; 
   height: auto;
   gap:50px;
   display: flex;
@@ -216,19 +248,18 @@ body {
   transform: scale(1.15);
 }
 
-/* Keyframes define the animation steps for the infinite scroll */
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    /* This value moves the track left by exactly half its width, creating a seamless loop */
+    
     transform: translateX(-50%);
   }
 }
 
-/* --- Gradient overlays from original code --- */
-/* These seem intended for visual effect but aren't in the design. Hiding them for now. */
+
 .grad-1, .grad-2, .grad-3, .grad-4, .grad-5 {
     display: none;
 }

@@ -10,7 +10,10 @@ import logo from './assets/images/logo.png';
 import cloudMov from "./assets/images/cloudMov.png";
 import clouds1 from "./assets/images/clouds1.png";
 import grass from "./assets/images/grass.png";
-
+import pokeball from "./assets/images/pokeball.png";
+import ratAnimated from "./assets/images/ratAnimated.png";
+import birdAnimated from "./assets/images/birbAnimated.png";
+import pokeballs from "./assets/images/pokeballs.png";
 gsap.registerPlugin(SteppedEase);
 
 const Home = () => {
@@ -51,7 +54,10 @@ const Home = () => {
           <img src={clouds1} className="clouds1" />
         </div>
         <div className="center-content">
-
+        <img  id ="poke" src={pokeball} className="pokeball"/>
+        <img src={ratAnimated} className="ratAnimated"/>
+        <img src={birdAnimated} className="birdAnimated"/>
+        <img src={pokeballs} className="pokeballs"/>
         
           <div className="character-container">
             <img
