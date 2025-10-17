@@ -68,8 +68,7 @@ body {
   width: 750px;
   max-width: 90%;
   padding: 1.5rem;
-  background-color: #5c9eef; /* Solid light blue from the new image */
-  background-image: url('./assets/images/cloudMov.png'); /* Added cloud layer, ensure path is correct */
+  background:transparent; /* Added cloud layer, ensure path is correct */
   background-size: cover; /* Makes the cloud image fill the container */
   background-blend-mode: screen; /* Blends the clouds with the blue background */
   border: 4px solid #0b0f2e; /* Darker blue border */
@@ -168,49 +167,53 @@ body {
   border-top: 4px solid #0f0f0f;
 }
 
-.sponsor-section {
-    width: 100%;
-    max-width: 1200px; /* Constrains the width on very large screens */
-}
-
-.sponsor-title {
-    text-align: center;
-    color: rgb(26, 21, 21);
-    font-family: 'PokemonFont', Arial, sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-/* --- Sponsor Carousel --- */
-.carousel {
-  width: 100%;
+.sponsor-section { 
+  
+  background-image: url('./assets/images/sponsor-bg.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain; 
+  text-align: center;
+  padding: 0 0;
   overflow: hidden;
-  /* Creates a faded-out effect on the left and right edges */
-  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  position: relative;
+  height: 180px; }
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end; 
+  overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
-  /* This animation scrolls the logos infinitely */
-  animation: scroll 40s linear infinite;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+  align-items: center;
+  gap: 80px;
 }
 
 .carousel-track a {
-    display: inline-block; /* Helps with spacing and alignment */
-    flex-shrink: 0; /* Prevents logos from shrinking */
+  flex-shrink: 0;
 }
 
 .carousel-track img {
-  height: 50px; /* Uniform height for all sponsor logos */
-  margin: 0 40px; /* Space between logos */
-  filter: grayscale(80%) brightness(0.9); /* Muted look */
-  transition: filter 0.3s ease;
+  width: auto;
+  max-height: 80px; /* fit logos inside the sponsor-bg */
+  height: auto;
+  gap:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s; padding: 0 0 20px;
 }
 
 .carousel-track img:hover {
-  filter: grayscale(0%) brightness(1); /* Full color on hover */
+  transform: scale(1.15);
 }
 
 /* Keyframes define the animation steps for the infinite scroll */
@@ -229,4 +232,3 @@ body {
 .grad-1, .grad-2, .grad-3, .grad-4, .grad-5 {
     display: none;
 }
-

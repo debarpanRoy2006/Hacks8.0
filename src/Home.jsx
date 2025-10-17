@@ -78,9 +78,9 @@ const Home = () => {
       <div className="grad-4"></div>
       <div className="grad-5"></div>
 
-      <div className="footer">
+  <div className="footer">
         <section className="sponsor-section">
-          <h2 className="sponsor-title" style={{ fontFamily: 'PokemonFont, Arial, sans-serif' }}>PREVIOUS SPONSORS</h2>
+         
           <div className="carousel">
             <div className="carousel-track">
               {[...sponsors, ...sponsors].map((sponsor, index) => (
