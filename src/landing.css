@@ -1,0 +1,232 @@
+/* --- Font Setup --- */
+/* This rule assumes you have a font file named 'pokemon-solid.ttf' 
+   in a folder like 'src/assets/fonts/'. Adjust the path if needed. */
+@font-face {
+  font-family: 'PokemonFont';
+  src: url('./assets/fonts/pokemon-solid.ttf') format('truetype');
+}
+
+/* --- General Body Styles --- */
+body {
+  margin: 0;
+  /* Prevents a horizontal scrollbar from appearing due to animations */
+  overflow-x: hidden; 
+  background-color: #000; /* Black background for the area below the main scene */
+  font-family: sans-serif;
+}
+
+/* --- Main Scene Container --- */
+/* This is the main blue area that holds the entire animated scene. */
+.blueBg {
+  position: relative;
+  width: 100vw;
+  height: 85vh; /* Covers 85% of the screen height */
+  background-color: #74b9ff; /* A nice sky blue */
+  overflow: hidden; /* Crucial for containing the scrolling background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ensures pixelated images don't get blurred when scaled */
+  image-rendering: pixelated; 
+}
+
+/* --- Scrolling Background Layers --- */
+/* This is a shared style for both the clouds and the ground layers that you animate with GSAP. */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2048px; /* This width is important for the seamless loop in your GSAP animation */
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%; /* Scales the height to fit while maintaining aspect ratio */
+}
+
+/* Specific z-index to ensure clouds are behind the ground */
+.background-layer.clouds-bg {
+  z-index: 1;
+}
+
+.background-layer.ground {
+  top: auto; /* Overrides top: 0 */
+  bottom: 0; /* Sticks the ground to the bottom of the .blueBg container */
+  z-index: 3; /* Places ground in front of clouds */
+  height: 15%; /* Adjust the height of the grass area */
+}
+
+/* --- Central Content (Logo, Banner, Characters) --- */
+/* --- Central Content (Logo, Banner, Characters) --- */
+.center-content {
+  position: relative;
+  z-index: 5; /* Puts characters and logo on top of all background layers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh; /* Pushes the box down to make room for the logo */
+  
+  /* Updated styles to create the new frame/border */
+  width: 750px;
+  max-width: 90%;
+  padding: 1.5rem;
+  background-color: #5c9eef; /* Solid light blue from the new image */
+  background-image: url('./assets/images/cloudMov.png'); /* Added cloud layer, ensure path is correct */
+  background-size: cover; /* Makes the cloud image fill the container */
+  background-blend-mode: screen; /* Blends the clouds with the blue background */
+  border: 4px solid #0b0f2e; /* Darker blue border */
+  box-shadow: inset 0 0 0 4px #e0e0e0; /* Inner light-gray border */
+  border-radius: 10px;
+}
+/* Using a pseudo-element to "write" the main title */
+.center-content::before {
+  content: 'NITS HACKS 8.0';
+  font-family: 'PokemonFont', Arial, sans-serif;
+  color: #ff3b3b; /* Brighter red to match new design */
+  font-size: 3.5rem;
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 4px 4px 0px #8b2835; /* More pronounced shadow */
+}
+
+/* Using a pseudo-element to "write" the coming soon text */
+.center-content::after {
+  content: 'COMING SOON';
+  font-family: 'PokemonFont', Arial, sans-serif;
+  color: #b0b0b0; /* Gray color from new design */
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 0px #404040; /* Darker gray shadow for depth */
+}
+
+/* Hiding the top logo image as it's not in the new design */
+/* Styling and positioning the logo in the sky */
+.logo {
+  display: block; /* Makes the logo visible */
+  position: absolute;
+  top: 3vh; /* Positions it 3% from the top of the viewport */
+  left: 50%;
+  transform: translateX(-50%); /* Horizontally centers the logo */
+  height: 45px; /* Adjust size as needed */
+  z-index: 10; /* Ensures it's on top of other elements */
+}
+
+  /* Container to position the characters */
+.container {
+    position: absolute;
+    bottom: -25vh; /* Adjusted position to be relative to the new frame */
+    display: flex;
+    align-items: flex-end; /* Aligns characters to their bottom edge */
+    gap: 30px; /* Space between Pikachu and the bike */
+}
+
+/* Container to position the characters */
+.character-container {
+    position: absolute;
+    bottom: -25vh; /* Adjusted position to be relative to the new frame */
+    display: flex;
+    align-items: flex-end; /* Aligns characters to their bottom edge */
+    gap: 30px; /* Space between Pikachu and the bike */
+}
+
+.character-pikachu {
+  height: 80px;
+}
+
+.character-bike {
+  height: 160px;
+}
+
+/* --- "COMING SOON" Text --- */
+/* Hiding the original container to replace it with a CSS pseudo-element */
+.comingContainer, .coming-soon-text {
+  display: none;
+}
+
+/* --- Decorative Static Clouds (Not animated) --- */
+.clouds1 {
+  display: none; /* In the reference code but not visible in the design; hiding for now */
+}
+
+/* --- Static Grass (Not part of the animation) --- */
+/* This element seems unused in the final design. Hiding it. */
+.staticGrass {
+  display: none;
+}
+
+/* --- Footer and Sponsors Section --- */
+.footer {
+  background-color: #eeeeee;
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  height: 15vh; /* The remaining 15% of the screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 4px solid #0f0f0f;
+}
+
+.sponsor-section {
+    width: 100%;
+    max-width: 1200px; /* Constrains the width on very large screens */
+}
+
+.sponsor-title {
+    text-align: center;
+    color: rgb(26, 21, 21);
+    font-family: 'PokemonFont', Arial, sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* --- Sponsor Carousel --- */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  /* Creates a faded-out effect on the left and right edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.carousel-track {
+  display: flex;
+  /* This animation scrolls the logos infinitely */
+  animation: scroll 40s linear infinite;
+}
+
+.carousel-track a {
+    display: inline-block; /* Helps with spacing and alignment */
+    flex-shrink: 0; /* Prevents logos from shrinking */
+}
+
+.carousel-track img {
+  height: 50px; /* Uniform height for all sponsor logos */
+  margin: 0 40px; /* Space between logos */
+  filter: grayscale(80%) brightness(0.9); /* Muted look */
+  transition: filter 0.3s ease;
+}
+
+.carousel-track img:hover {
+  filter: grayscale(0%) brightness(1); /* Full color on hover */
+}
+
+/* Keyframes define the animation steps for the infinite scroll */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* This value moves the track left by exactly half its width, creating a seamless loop */
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Gradient overlays from original code --- */
+/* These seem intended for visual effect but aren't in the design. Hiding them for now. */
+.grad-1, .grad-2, .grad-3, .grad-4, .grad-5 {
+    display: none;
+}
+
