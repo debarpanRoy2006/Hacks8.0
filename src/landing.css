@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
   font-family: 'PokemonFont';
   src: url('./assets/fonts/PokemonSolid.ttf') format('truetype');
@@ -54,12 +55,225 @@
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover ; 
+=======
+
+@font-face {
+  font-family: 'PokemonFont';
+  src: url('./assets/fonts/pokemon-solid.ttf') format('truetype');
+}
+
+
+body {
+  margin: 0;
+ 
+  overflow-x: hidden; 
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+
+.blueBg {
+  position: relative;
+  width: 100vw;
+  height: 85vh; /* Covers 85% of the screen height */
+  background-color: #74b9ff; /* A nice sky blue */
+  overflow: hidden; /* Crucial for containing the scrolling background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ensures pixelated images don't get blurred when scaled */
+  image-rendering: pixelated; 
+}
+
+/* --- Scrolling Background Layers --- */
+/* This is a shared style for both the clouds and the ground layers that you animate with GSAP. */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2048px; /* This width is important for the seamless loop in your GSAP animation */
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%; /* Scales the height to fit while maintaining aspect ratio */
+}
+
+/* Specific z-index to ensure clouds are behind the ground */
+.background-layer.clouds-bg {
+  z-index: 1;
+}
+
+.background-layer.ground {
+  top: auto; 
+  bottom: 0; 
+  z-index: 3; 
+  height: 15%; 
+}
+.center-content {
+  position: relative;
+  z-index: 5; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh; 
+  
+  
+  width: 750px;
+  max-width: 90%;
+  padding: 1.5rem;
+  background:transparent; 
+  background-size: cover; 
+  background-blend-mode: screen; 
+  border: 4px solid #0b0f2e;
+  box-shadow: inset 0 0 0 4px #e0e0e0; 
+  border-radius: 20px;
+  border:border-box;
+  
+  
+   
+}
+
+.center-content::before {
+  content: 'NITS HACKS 8.0';
+  font-family: 'PokemonFont', Arial, sans-serif;
+  color: #ff3b3b; 
+  font-size: 3.5rem;
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 4px 4px 0px #8b2835; 
+}
+
+
+.center-content::after {
+  content: 'COMING SOON';
+  font-family: 'PokemonFont', Arial, sans-serif;
+  color: #b0b0b0; 
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 0px #404040; 
+}
+
+
+.logo {
+  display: block; 
+  position: absolute;
+  top: 3vh;
+  left: 50%;
+  transform: translateX(-50%); 
+  height: 45px; 
+  z-index: 10; 
+}
+
+  
+.container {
+    position: absolute;
+    bottom: -25vh; 
+    display: flex;
+    align-items: flex-end; 
+    gap: 30px;
+}
+
+
+.character-container {
+    position: absolute;
+    bottom: -25vh;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px; 
+}
+
+.character-pikachu {
+  height: 80px;
+}
+
+.character-bike {
+  height: 160px;
+}
+
+.comingContainer, .coming-soon-text {
+  display: none;
+}
+
+
+.clouds1 {
+  display: none;
+}
+
+
+.staticGrass {
+  display: none;
+}
+#poke{
+  width: 150px;
+  position:absolute;;
+  left: 50px;
+  bottom:1px;
+}
+#poke:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+.ratAnimated{
+  width:100px;
+  position:absolute;
+  left:-70px;
+  bottom:130px;
+}
+.ratAnimated:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+.birdAnimated{
+  width:100px;
+  position:absolute;
+  right:120px;
+  bottom:100px;
+  
+}
+.birdAnimated:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+.pokeballs{
+  width:830px;
+  position:absolute;
+  right:-12px;
+  bottom:-20px;
+  height:200px;
+}
+
+
+.footer {
+  background-color: #eeeeee;
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  height: 15vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 4px solid #0f0f0f;
+}
+
+.sponsor-section { 
+  
+  background-image: url('./assets/images/sponsor-bg.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain; 
+>>>>>>> ac911609c7d41e8cc837a7a08f9d6ac7c6b590a5
   text-align: center;
   padding: 0 0;
   overflow: hidden;
   position: relative;
+<<<<<<< HEAD
   height: 200px; 
 }
+=======
+  height: 180px; }
+>>>>>>> ac911609c7d41e8cc837a7a08f9d6ac7c6b590a5
 
 .carousel {
   position: relative;
@@ -97,6 +311,7 @@
 .carousel-track img:hover {
   transform: scale(1.15);
 }
+<<<<<<< HEAD
 .Footercontent{
   position: absolute;
   bottom: -50px;
@@ -116,15 +331,24 @@
   border:solid 5px #161616;
   transform: translateX(-50%);
 }
+=======
+
+
+>>>>>>> ac911609c7d41e8cc837a7a08f9d6ac7c6b590a5
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> ac911609c7d41e8cc837a7a08f9d6ac7c6b590a5
     transform: translateX(-50%);
   }
 }
 
+<<<<<<< HEAD
 .character-bike {
   position: relative;
   z-index: 11;
@@ -276,4 +500,9 @@
   width: 100%; 
   z-index: 1; 
   pointer-events: none; 
+=======
+
+.grad-1, .grad-2, .grad-3, .grad-4, .grad-5 {
+    display: none;
+>>>>>>> ac911609c7d41e8cc837a7a08f9d6ac7c6b590a5
 }
